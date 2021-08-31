@@ -1,0 +1,27 @@
+<form #f="ngForm" (ngSubmit)="onSubmit(f.value); f.reset()">
+  <mat-form-field>
+    <mat-label>ID</mat-label>
+    <input name="id" ngModel matInput type="text" placeholder="ID" />
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input name="name" ngModel matInput type="text" placeholder="name" />
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Email/ID</mat-label>
+    <span matSuffix item-width="200">@gmail.com</span>
+    <input name="email" ngModel matInput type="text" placeholder="email" />
+  </mat-form-field>
+
+  <br />
+
+  <mat-form-field>
+    <mat-label>Telephone</mat-label>
+    <span matPrefix item-width="200" style="margin-right: 10px">+82 010</span>
+    <input name="tel" ngModel matInput type="text" placeholder="Telephone" />
+    <mat-icon matSuffix>model_edit</mat-icon>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary">Submit</button>
+  <button mat-raised-button color="pink" (click)="f.reset()">Clear</button>
+</form>

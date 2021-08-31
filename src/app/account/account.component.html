@@ -1,0 +1,58 @@
+<!-- <button mat-raised-button color="primary" routerLink="newaccount">
+    New Account
+</button> -->
+
+<button 
+    mat-raised-button
+    color="primary"
+    (click)="newAccount = true"
+    >Add New Account</button>
+
+<new-account *ngIf="newAccount"
+    (newAccount)="addAccount($event)">
+</new-account>
+
+
+    <h3 style="margin-top: 40px; font-weight: bold;">Active Users</h3>
+    <div *ngIf="accounts.length > 0; else noAccounts">
+    <mat-nav-list *ngFor="let account of accounts; let i=index">
+      <mat-list-item *ngIf="account.status == 'Active'">
+        <!-- example-full-width : ㅅㅂ 이거 css 따로 만든것 같은데... 이 개객기가.... -->
+        <p style="font-size: 14pt;" class="example-full-width">
+            {{ account.name }}
+        </p>
+        <p style="font-size: 14pt;" class="example-full-width">
+            {{ account.email }}
+        </p>
+        <p style="font-size: 14pt;" class="example-full-width">
+            {{ account.tel }}
+        </p>
+        <span flex></span>
+        <button mat-raised-button (click)="statusReset(account.id, account)">{{ account.status }}</button>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+  </mat-nav-list>
+
+  <h3 style="margin-top: 40px; font-weight: bold;">Inactive Users</h3>
+  <mat-nav-list *ngFor="let account of accounts">
+      <mat-list-item *ngIf="account.status != 'Active'">
+        <!-- example-full-width : ㅅㅂ 이거 css 따로 만든것 같은데... 이 개객기가.... -->
+        <p style="font-size: 14pt;" class="example-full-width">
+            {{ account.name }}
+        </p>
+        <p style="font-size: 14pt;" class="example-full-width">
+            {{ account.email }}
+        </p>
+        <p style="font-size: 14pt;" class="example-full-width">
+            {{ account.tel }}
+        </p>
+        <span flex></span>
+        <button mat-raised-button (click)="statusReset(account.id, account)">{{ account.status }}</button>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+  </mat-nav-list>
+  </div>
+
+  <ng-template #noAccounts>
+      <h5>There is no account yet.</h5>
+  </ng-template>

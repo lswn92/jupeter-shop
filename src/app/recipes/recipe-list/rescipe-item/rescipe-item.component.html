@@ -1,0 +1,17 @@
+<mat-list>
+    <mat-card>
+        <mat-list-item>
+            <strong>{{ recipe.name }}</strong>
+        </mat-list-item>
+        <mat-list-item>
+            {{ recipe.desc }} 
+            자세히 보기
+            <button mat-icon-button (click)="onClick(recipe.id)">
+                <mat-icon>info</mat-icon>
+            </button>
+        </mat-list-item>
+        
+        <!-- 갑자기 질문! 표준 HTML 태그를 => 앙귤러 bracket 으로 바꾸는 거 뭐라고? -->
+        <img [src]="recipe.imgPath" width=400 height=250 alt="">
+    </mat-card>
+</mat-list>

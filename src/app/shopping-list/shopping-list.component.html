@@ -1,0 +1,22 @@
+<form #f="ngForm" (ngSubmit)="onSubmit(f.value); f.reset()">
+  <mat-form-field>
+    <input name="name" ngModel matInput type="text" placeholder="name" />
+  </mat-form-field>
+  <mat-form-field>
+    <input name="quantity" ngModel matInput type="text" placeholder="quantity" />
+  </mat-form-field>
+
+  <button mat-raised-button color="primary">Add</button>
+  <button mat-raised-button color="pink" (click)="f.reset()">Clear</button>
+</form>
+
+<pre>{{ f.value | json }}</pre>
+
+<mat-action-list *ngFor="let ingredient of ingredients; let i = index">
+  <mat-card>
+    <mat-list-item>
+      <strong>{{ ingredient.name }}</strong>
+      : {{ ingredient.quantity }}
+    </mat-list-item>
+  </mat-card>
+</mat-action-list>

@@ -1,0 +1,9 @@
+
+<app-rescipe-detail [selectedDetail]="itemInList"></app-rescipe-detail>
+
+<app-rescipe-item 
+    *ngFor="let recipeParents of recipes; let i = index"
+    [recipe] = "recipeParents" 
+    (childSubmit)="onTest($event)">
+
+</app-rescipe-item>
